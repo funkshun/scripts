@@ -1,0 +1,10 @@
+#!/bin/bash
+
+git add .
+git commit -m "deprecated branch commit"
+git branch deprecated
+
+git fetch origin
+git reset --hard origin/master
+
+
