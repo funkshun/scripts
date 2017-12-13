@@ -1,0 +1,24 @@
+#!/bin/sh
+
+current=$(cat /sys/class/backlight/intel_backlight/brightness);
+step=30
+if [ "$1" == "+" ]; then
+    final=$(($current+$step));
+    if ["$final" -gt "937"]; then
+        final=937;
+    fi
+    tee /sys/class/backlight/intel_backlight/brightness <<< "$final" &&
+        exit 0;
+elif [ "$1" == "-" ]; then
+    final=$(($current-$step))
+    if ["$final" -lt "0"]; then
+        final=0;
+    fi
+    tee /sys/class/backlight/intel_backlight/brightness <<< "$final" &&
+        exit 0;
+else
+    echo "Unknown Argument $1\nAvailable Commands are \"+\" and \"-\+" && exit
+    0;
+fi
+
+exit 1;

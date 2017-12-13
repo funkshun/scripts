@@ -1,0 +1,6 @@
+#!/bin/sh
+correct_mac=a4:02:b9:ca:26:3c
+sudo killall wpa_supplicant
+sudo ip link set dev wlp3s0 down
+sudo ip link set dev wlp3s0 address $correct_mac
+sudo netctl start wlp3s0-UNC-PSK

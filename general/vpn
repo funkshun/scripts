@@ -1,0 +1,6 @@
+#!/bin/sh
+if [ $1 == "stop" ]; then
+    sudo killall openvpn
+else
+    cd /etc/openvpn && sudo openvpn --config /etc/openvpn/$1.ovpn --auth-user-pass auth.txt  --daemon
+fi
