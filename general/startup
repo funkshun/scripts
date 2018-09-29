@@ -1,0 +1,12 @@
+#!/bin/bash
+killall -q mopidy
+killall -q polybar
+
+while pgrep -x mopidy >/dev/null; do sleep 1; done
+while pgrep -x polybar >/dev/null; do sleep 1; done
+
+screen -dm -S mopidy mopidy
+echo "Enter Sleep..."
+sleep 2 
+echo "Wake"
+screen -dm -S polybar polybar phase

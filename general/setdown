@@ -1,0 +1,4 @@
+#!/bin/sh
+sudo killall wpa_supplicant
+sudo ip link set dev wlp3s0 down
+sudo wifi-menu
