@@ -5,8 +5,8 @@ def main():
     lat = 35.9132
     lng = -79.0558
 
-    weather = forecastio.load_forecast(api_key, lat, lng).currently()
     if network_up():
+        weather = forecastio.load_forecast(api_key, lat, lng).currently()
         print(weather.summary + ", " + str(weather.temperature) + "F, " + str(weather.precipProbability) + "% Chance")
     else:
         print("Network Unavailable")
